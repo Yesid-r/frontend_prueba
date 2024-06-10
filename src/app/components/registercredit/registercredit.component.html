@@ -1,0 +1,31 @@
+<div class="flex items-center justify-center h-screen bg-gray-200">
+    <div class="bg-white p-8 rounded-lg shadow-md w-120">
+        <form (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label for="deudor" class="block text-gray-700 font-bold mb-2">Deudor</label>
+                <select id="deudor" name="deudor" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                  placeholder-gray-400 text-gray-700" [(ngModel)]="idDeudor">
+                    <option value="">Seleccionar deudor</option>
+                    <option *ngFor="let deudor of deudores" [value]="deudor.id">{{deudor.firstname}} {{deudor.lastname}}</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="cobrador" class="block text-gray-700 font-bold mb-2">Cobrador</label>
+                <select id="cobrador" name="cobrador" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                  placeholder-gray-400 text-gray-700" [(ngModel)]="idCobrador">
+                    <option value="">Seleccionar cobrador</option>
+                    <option *ngFor="let cobrador of cobradores" [value]="cobrador.id">{{cobrador.firstname}} {{cobrador.lastname}}</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="saldo" class="block text-gray-700 font-bold mb-2">Saldo</label>
+                <input type="number" id="saldo" name="saldo" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                              placeholder-gray-400 text-gray-700" placeholder="Saldo" [(ngModel)]="saldo">
+            </div>
+            <button type="submit" class="w-full bg-yellow-400 text-white py-2 px-4 rounded-lg font-bold
+                    hover:bg-yellow-500 focus:outline-none focus:bg-yellow-500">
+                Registrar crédito
+            </button>
+        </form>
+    </div>
+</div>

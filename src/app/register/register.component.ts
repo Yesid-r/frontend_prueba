@@ -11,6 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RegisterComponent implements OnInit {
 
   user: User = {
+    id: 0,
     firstname: '',
     lastname: '',
     email: '',

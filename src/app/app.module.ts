@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CreditosComponent } from './creditos/creditos.component';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { RegistercreditComponent } from './components/registercredit/registercredit.component';
+import { ListcreditsComponent } from './components/listcredits/listcredits.component';
 
 
 
@@ -25,7 +27,9 @@ import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuari
     HomeComponent,
     UsuariosComponent,
     CreditosComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    RegistercreditComponent,
+    ListcreditsComponent
   ],
   imports: [
     BrowserModule,
