@@ -1,1 +1,27 @@
-<p>listcredits works!</p>
+<div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Deudor </th>
+          <th>Comprador</th>
+          <th>Saldo</th>
+          <th>Fecha creacion</th>
+          <th>Fecha ultimo pago</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let credito of creditos">
+          <td>{{ credito.id }}</td>
+          <td>{{ credito.deudor.firstname }} {{ credito.deudor.lastname }}</td>
+          <td>{{ credito.cobrador.firstname }} {{ credito.cobrador.lastname }}</td>
+          <td>{{ credito.saldo }}</td>
+          <td>{{ credito.createdAt }}</td>
+          <td>{{ credito.updatedAt? credito.updatedAt : 'No registra pago'  }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

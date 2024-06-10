@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListcreditsComponent implements OnInit {
 
-  constructor() { }
+  creditos: any[] = []
 
+  constructor(private httpClient: HttpClient) { }
+
+
+  loadCredits(){
+    this.httpClient.get<any>('http://localhost:8081/api/v1/credit').subscribe((response) => {
+      this.creditos = response
+    })
+  }
   ngOnInit(): void {
+    this.loadCredits()
   }
 
 }
