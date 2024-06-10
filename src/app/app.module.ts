@@ -9,6 +9,10 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CreditosComponent } from './creditos/creditos.component';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+
 
 
 
@@ -18,13 +22,17 @@ import { HomeComponent } from './components/home/home.component';
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    UsuariosComponent,
+    CreditosComponent,
+    ListaUsuariosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    
     
     
   ],

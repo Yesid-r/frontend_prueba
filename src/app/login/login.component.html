@@ -1,20 +1,16 @@
 <div class="flex items-center justify-center h-screen bg-gray-200">
-  <div class="bg-white p-8 rounded-lg shadow-md w-80">
+  <div class="bg-white p-8 rounded-lg shadow-md w-120">
     <h2 class="text-2xl font-bold mb-6">Login</h2>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="mb-4">
         <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
-        <input type="text" id="username" name="username" ngModel required
-               class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700"
-               [(ngModel)]="username">
+        <input type="text" id="username" name="username" ngModel required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                      placeholder-gray-400 text-gray-700" [(ngModel)]="username">
       </div>
       <div class="mb-6">
         <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
-        <input type="password" id="password" name="password" ngModel required
-               class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700"
-               [(ngModel)]="password">
+        <input type="password" id="password" name="password" ngModel required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                      placeholder-gray-400 text-gray-700" [(ngModel)]="password">
       </div>
       <button type="submit" class="w-full bg-yellow-400 text-white py-2 px-4 rounded-lg font-bold
                                    hover:bg-yellow-500 focus:outline-none focus:bg-yellow-500">
