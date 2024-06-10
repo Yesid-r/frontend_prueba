@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  
-
+  token: string = ''
   constructor() { }
 
   ngOnInit(): void {
+    const tokenNav = localStorage.getItem('token')
     
   }
 

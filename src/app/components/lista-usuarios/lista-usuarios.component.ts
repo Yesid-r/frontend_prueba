@@ -27,7 +27,7 @@ export class ListaUsuariosComponent implements OnInit {
         'Authorization': `Bearer ${token}`
       });
 
-      this.httpClient.get<any[]>('http://localhost:8081/api/v1/users',{headers})
+      this.httpClient.get<any[]>('http://localhost:8081/api/v1/users')
       .subscribe(response => this.users = response); 
     } else {
       console.error('No token found in local storage.');
