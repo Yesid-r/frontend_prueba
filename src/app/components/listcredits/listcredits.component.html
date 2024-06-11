@@ -8,6 +8,7 @@
           <th>Saldo</th>
           <th>Fecha creacion</th>
           <th>Fecha ultimo pago</th>
+          <th>Acciones</th>
           
         </tr>
       </thead>
@@ -19,6 +20,9 @@
           <td>{{ credito.saldo }}</td>
           <td>{{ credito.createdAt }}</td>
           <td>{{ credito.updatedAt? credito.updatedAt : 'No registra pago'  }}</td>
+          <td>
+            <button class="bg-red-500 rounded-sm text-white font-semibold" (click)="delete(credito.id)">Eliminar</button>
+          </td>
           
         </tr>
       </tbody>

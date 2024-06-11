@@ -1,18 +1,17 @@
 <header>
-    <nav class="bg-gray-800 text-white w-full p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <div class="text-xl font-bold">
-          <a href="#">Prueba</a>
-        </div>
-        <div class="md:flex space-x-4">
-          <a routerLink="/" class="hover:text-yellow-400">Home</a>
-          <a routerLink="/usuarios" class="hover:text-yellow-400">Usuarios</a>
-          <a routerLink="/creditos" class="hover:text-yellow-400">Creditos</a>
-          <a routerLink="/login" class="hover:text-yellow-400">Login</a>
-          <a routerLink="/register-user" class="hover:text-yellow-400">Register</a>
-        </div>
+  <nav class="bg-gray-800 text-white w-full p-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="text-xl font-bold">
+        <a href="#">Prueba</a>
       </div>
-
-    </nav>
-  </header>
-  
+      <div class="md:flex space-x-4">
+        <a routerLink="/" class="hover:text-yellow-400">Home</a>
+        <a  *ngIf="user && user.role ==='ADMIN'" routerLink="/usuarios" class="hover:text-yellow-400">Usuarios</a>
+        <a  *ngIf="user" routerLink="/creditos" class="hover:text-yellow-400">Creditos</a>
+        <a *ngIf="!token" routerLink="/login" class="hover:text-yellow-400">Login</a>
+        <span *ngIf="user" class="text-yellow-400">Bienvenido, {{ user.firstname }}</span>
+        <a *ngIf="token" (click)="logout()" class="hover:text-yellow-400 cursor-pointer">Logout</a>
+      </div>
+    </div>
+  </nav>
+</header>

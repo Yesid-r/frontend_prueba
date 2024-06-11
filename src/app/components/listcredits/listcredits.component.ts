@@ -21,5 +21,17 @@ export class ListcreditsComponent implements OnInit {
   ngOnInit(): void {
     this.loadCredits()
   }
+  delete(id:number){
+    const confirmResult = window.confirm('¿Estás seguro de que deseas eliminar este credito?');
+    if(confirmResult){
+      this.httpClient.delete<any>(`http://localhost:8081/api/v1/credit/${id}`).subscribe((response) => {
+        
+          alert('credito eliminado correctamente')
+        
+      })
+    }else{
+      console.log("Cancelado")
+    }
+  }
 
 }

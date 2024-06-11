@@ -33,5 +33,17 @@ export class ListaUsuariosComponent implements OnInit {
       console.error('No token found in local storage.');
     }
   }
+  delete(id:number){
+    const confirmResult = window.confirm('¿Estás seguro de que deseas eliminar este usuario?');
+    if(confirmResult){
+      this.httpClient.delete<any>(`http://localhost:8081/api/v1/users/${id}`).subscribe((response) => {
+        
+          alert('usuario eliminado correctamente')
+        
+      })
+    }else{
+      console.log("Cancelado")
+    }
+  }
 
 }
