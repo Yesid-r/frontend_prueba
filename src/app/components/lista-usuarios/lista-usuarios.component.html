@@ -22,7 +22,9 @@
           <td>{{ user.role }}</td>
           <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
           <td>
-            <button class="bg-red-500 rounded-sm text-white font-semibold" (click)="delete(user.id)">Eliminar</button>
+            <button class=" bg-red-500 rounded-sm text-white font-semibold" (click)="delete(user.id)">Eliminar</button>
+            <button (click)="selectedUser(user)" class="bg-blue-600 rounded-sm text-white font-semibold" >Actualizar</button>
+
           </td>
         </tr>
       </tbody>

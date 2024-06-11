@@ -23,6 +23,10 @@ export class RegisterComponent implements OnInit {
   
   constructor(private httpClient:HttpClient) { }
 
+  getUser(user: User){
+    this.user = user
+  }
+
   ngOnInit(): void {
   }
   onSubmit(){

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -14,6 +15,11 @@ export class ListaUsuariosComponent implements OnInit {
   error: string = '';
 
   constructor(private httpClient: HttpClient) { }
+
+  @Output() addUserSelected = new EventEmitter<User>()
+  selectedUser(user: User){
+    this.addUserSelected.emit(user)
+  }
 
   ngOnInit(): void {
     this.loadUsers();
