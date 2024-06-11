@@ -17,14 +17,17 @@ export class RegistercreditComponent implements OnInit {
   saldo: number = 0;
   deudores: User[] = [];
   cobradores: User[] = [];
+  token: string = ''
 
   private readonly AUTH_HEADER = new HttpHeaders({
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYWlybzNyaW5jb25AZ21haWwuY29tIiwiaWF0IjoxNzE4MDUwMjQ3LCJleHAiOjE3MTgxMzY2NDd9.VcY3l9dk_ggmpsvAIh7bVRHs3HJOVtoZR8dB1freuPM'
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${this.token}`
   });
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+    this.token = localStorage.getItem('token') || ''
     this.loadUsersByRole('COBRADOR', 'cobradores');
     this.loadUsersByRole('DEUDOR', 'deudores');
   }

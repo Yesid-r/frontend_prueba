@@ -1,47 +1,55 @@
-<div class="flex items-center justify-center h-screen bg-gray-200">
-    <div class="bg-white p-8 rounded-lg shadow-md w-120">
-        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-            <div class="mb-4">
-                <label for="firstname" class="block text-gray-700 font-bold mb-2 w-full">Nombre</label>
-                <input type="text" id="firstname" name="firstname" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700" placeholder="Nombre" [(ngModel)]="user.firstname" #firstname="ngModel">
-            </div>
-            <div class="mb-4">
-                <label for="lastname" class="block text-gray-700 font-bold mb-2">Apellido</label>
-                <input type="text" id="lastname" name="lastname" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700" placeholder="Apellidos" [(ngModel)]="user.lastname" #lastname="ngModel">
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                <input type="email" id="email" name="email" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700" placeholder="E-mail" [(ngModel)]="user.email" #email="ngModel">
-            </div>
-            <div class="mb-4">
-                <label for="password" class="block text-gray-700 font-bold mb-2">Contraseña</label>
-                <input type="password" id="password" name="password" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700" placeholder="Contraseña" [(ngModel)]="user.password" #password="ngModel">
-            </div>
-            <div class="mb-4">
-                <label for="phone" class="block text-gray-700 font-bold mb-2">Telefono</label>
-                <input type="text" id="phone" name="phone" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700" placeholder="Telefono" [(ngModel)]="user.phone" #phone="ngModel">
-            </div>
-            <div class="mb-4">
-                <label for="role" class="block text-gray-700 font-bold mb-2">Rol</label>
-                <select id="role" name="role" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
-                      placeholder-gray-400 text-gray-700" [(ngModel)]="user.role" #role="ngModel">
-                    <option value="">Seleccionar Rol</option>
-                    <option value="ADMIN">ADMIN</option>
-                    <option value="DEUDOR">DEUDOR</option>
-                    <option value="COBRADOR">COBRADOR</option>
-                </select>
-            </div>
-            <button type="submit" class="w-full bg-yellow-400 text-white py-2 px-4 rounded-lg font-bold
-            hover:bg-yellow-500 focus:outline-none focus:bg-yellow-500" [disabled]="loading">
-                {{user.id? 'Actualizar usuario': 'Registrar usuario'}}
-            </button>
-
-        </form>
+<div class="container mx-auto p-4 bg-gray-200 mt-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white p-8 rounded-lg shadow-md w-120">
+            <h2 class="font-bold text-3xl mb-3" >Registrar usuario</h2>
+            <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                <div class="mb-4">
+                    <label for="firstname" class="block text-gray-700 font-bold mb-2 w-full">Nombre</label>
+                    <input type="text" id="firstname" name="firstname" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                          placeholder-gray-400 text-gray-700" placeholder="Nombre" [(ngModel)]="user.firstname"
+                        #firstname="ngModel">
+                </div>
+                <div class="mb-4">
+                    <label for="lastname" class="block text-gray-700 font-bold mb-2">Apellido</label>
+                    <input type="text" id="lastname" name="lastname" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                          placeholder-gray-400 text-gray-700" placeholder="Apellidos" [(ngModel)]="user.lastname"
+                        #lastname="ngModel">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                    <input type="email" id="email" name="email" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                          placeholder-gray-400 text-gray-700" placeholder="E-mail" [(ngModel)]="user.email"
+                        #email="ngModel">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 font-bold mb-2">Contraseña</label>
+                    <input type="password" id="password" name="password" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                          placeholder-gray-400 text-gray-700" placeholder="Contraseña" [(ngModel)]="user.password"
+                        #password="ngModel">
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-700 font-bold mb-2">Telefono</label>
+                    <input type="text" id="phone" name="phone" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                          placeholder-gray-400 text-gray-700" placeholder="Telefono" [(ngModel)]="user.phone"
+                        #phone="ngModel">
+                </div>
+                <div class="mb-4">
+                    <label for="role" class="block text-gray-700 font-bold mb-2">Rol</label>
+                    <select id="role" name="role" required class="block w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-yellow-400
+                          placeholder-gray-400 text-gray-700" [(ngModel)]="user.role" #role="ngModel">
+                        <option value="">Seleccionar Rol</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="DEUDOR">DEUDOR</option>
+                        <option value="COBRADOR">COBRADOR</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-yellow-400 text-white py-2 px-4 rounded-lg font-bold
+                hover:bg-yellow-500 focus:outline-none focus:bg-yellow-500" [disabled]="loading">
+                    {{user.id ? 'Actualizar usuario' : 'Registrar usuario'}}
+                </button>
+            </form>
+        </div>
+        <app-lista-usuarios (addUserSelected)="getUser($event)"></app-lista-usuarios>
     </div>
-    <app-lista-usuarios (addUserSelected)="getUser($event)"></app-lista-usuarios>
+
 </div>
