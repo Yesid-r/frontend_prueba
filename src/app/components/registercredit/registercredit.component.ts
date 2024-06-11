@@ -17,6 +17,7 @@ export class RegistercreditComponent implements OnInit {
   deudores: User[] = [];
   cobradores: User[] = [];
   token: string = '';
+  user: any ={}
 
   constructor(private httpClient: HttpClient) { }
 
@@ -24,6 +25,13 @@ export class RegistercreditComponent implements OnInit {
     this.token = localStorage.getItem('token') || '';
     this.loadUsersByRole('COBRADOR', 'cobradores');
     this.loadUsersByRole('DEUDOR', 'deudores');
+    const userJson = localStorage.getItem('user');
+    if (userJson) {
+      this.user = JSON.parse(userJson);
+    }else {
+      this.user = null
+    }
+    console.log(this.user);
   }
 
   private getAuthHeaders(): HttpHeaders {

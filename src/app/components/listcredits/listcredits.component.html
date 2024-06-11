@@ -1,31 +1,41 @@
-<div class="table-container ">
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Deudor </th>
-          <th>Cobrador</th>
-          <th>Saldo</th>
-          <th>Fecha creacion</th>
-          <th>Fecha ultimo pago</th>
-          <th>Acciones</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let credito of creditos">
-          <td>{{ credito.id }}</td>
-          <td>{{ credito.deudor.firstname }} {{ credito.deudor.lastname }}</td>
-          <td>{{ credito.cobrador.firstname }} {{ credito.cobrador.lastname }}</td>
-          <td>{{ credito.saldo }}</td>
-          <td>{{ credito.createdAt }}</td>
-          <td>{{ credito.updatedAt? credito.updatedAt : 'No registra pago'  }}</td>
-          <td>
-            <button class="bg-red-500 rounded-sm text-white font-semibold" (click)="delete(credito.id)">Eliminar</button>
-          </td>
-          
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="table-container">
+  <h2 class="font-bold text-3xl mb-3" >Lista de creditos({{creditos.length}})</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Deudor</th>
+        <th>Cobrador</th>
+        <th>Saldo</th>
+        <th>Fecha creación</th>
+        <th>Fecha último pago</th>
+        <th *ngIf="user.role !== 'DEUDOR'">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let credito of creditos">
+        <td>{{ credito.id }}</td>
+        <td>{{ credito.deudor.firstname }} {{ credito.deudor.lastname }}</td>
+        <td>{{ credito.cobrador.firstname }} {{ credito.cobrador.lastname }}</td>
+        <td>{{ credito.saldo }}</td>
+        <td>{{ credito.createdAt }}</td>
+        <td>{{ credito.updatedAt ? credito.updatedAt : 'No registra pago' }}</td>
+        <td *ngIf="user.role !== 'DEUDOR'">
+          <button *ngIf="user.role === 'ADMIN'" class="bg-red-500 rounded-sm text-white font-semibold" (click)="delete(credito.id)">Eliminar</button>
+          <button *ngIf="user.role === 'COBRADOR'" class="bg-green-500 rounded-sm text-white font-semibold" (click)="openPaymentDialog(credito.id)">Realizar Pago</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
   
+  <div *ngIf="showPaymentDialog" class="dialog-overlay">
+    <div class="dialog-content">
+      <h3>Realizar Pago</h3>
+      <label for="amount">Monto:</label>
+      <input type="number" [(ngModel)]="paymentAmount" id="amount">
+      <button class="bg-blue-500 rounded-sm text-white font-semibold" (click)="makePayment()">Confirmar</button>
+      <button class="bg-gray-500 rounded-sm text-white font-semibold" (click)="closePaymentDialog()">Cancelar</button>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,9 @@ export class ListcreditsComponent implements OnInit {
   creditos: any[] = [];
   user: any = {};
   token: string = '';
+  showPaymentDialog: boolean = false;
+  paymentAmount: number = 0;
+  currentCreditId: number = 0;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -67,7 +70,7 @@ export class ListcreditsComponent implements OnInit {
   delete(id: number) {
     const confirmResult = window.confirm('¿Estás seguro de que deseas eliminar este crédito?');
     if (confirmResult) {
-      this.httpClient.delete<any>(`http://localhost:8081/api/v1/credit/${id}`).subscribe(
+      this.httpClient.delete<any>(`http://localhost:8081/api/v1/credit/${id}`, { headers: this.getAuthHeaders() }).subscribe(
         (response) => {
           alert('Crédito eliminado correctamente');
           this.loadCredits();
@@ -79,5 +82,32 @@ export class ListcreditsComponent implements OnInit {
     } else {
       console.log('Cancelado');
     }
+  }
+
+  openPaymentDialog(creditId: number) {
+    this.currentCreditId = creditId;
+    this.showPaymentDialog = true;
+  }
+
+  closePaymentDialog() {
+    this.showPaymentDialog = false;
+  }
+
+  makePayment() {
+    const payload = {
+      id: this.currentCreditId,
+      amount: this.paymentAmount
+    };
+
+    this.httpClient.post<any>("http://localhost:8081/api/v1/credit/payment", payload).subscribe(
+      (response) => {
+        alert('Pago realizado correctamente');
+        this.closePaymentDialog();
+        this.loadCredits(); 
+      },
+      (error) => {
+        console.error('Error making payment:', error);
+      }
+    );
   }
 }

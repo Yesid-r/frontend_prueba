@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center h-screen bg-gray-200">
+<div *ngIf="user.role==='ADMIN'"  class="flex items-center justify-center h-screen bg-gray-200">
     <div class="bg-white p-8 rounded-lg shadow-md w-120">
         <form (ngSubmit)="onSubmit()">
             <div class="mb-4">
